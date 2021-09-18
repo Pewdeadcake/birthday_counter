@@ -12,14 +12,14 @@ channel = os.getenv('TG_ID')
 def get_user_birthday():
     year = int(os.getenv('YEAR'))
     month = int(os.getenv('MONTH'))
-    day = int(os.getenv('DATE'+1))
+    day = int(os.getenv('DATE'))
     birthday = datetime.datetime(year, month, day)
     return birthday
 
 def compute_birthday_difference(original_date, now):
     date1 = now
     date2 = datetime.datetime(now.year, original_date.month, original_date.day)
-    difference = date1 - date2
+    difference = date1 - date2 + 1
     days = int(difference.total_seconds()/60/60/24)
     return days
 
